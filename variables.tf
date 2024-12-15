@@ -107,7 +107,7 @@ variable "host_id" {
 }
 
 variable "host_resource_group_arn" {
-  description = "ARN of a dedicated host resource group to automatically associate the instance with. Used when an instance needs to be launched on a specific host group"
+  description = "The ARN of the Host Resource Group in which to launch instances"
   type        = string
   default     = null
 }
