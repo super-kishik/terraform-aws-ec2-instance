@@ -178,7 +178,12 @@ resource "aws_instance" "this" {
   tenancy                              = var.tenancy
   host_id                              = var.host_id
   host_resource_group_arn              = var.host_resource_group_arn
-
+  dynamic "license_specification" {
+    for_each = length(var.license_specifications) > 0 ? [var.license_specifications] : []
+    content {
+      license_configuration_arn = license_specification.value.license_configuration_arn
+    }
+  }
   credit_specification {
     cpu_credits = local.is_t_instance_type ? var.cpu_credits : null
   }

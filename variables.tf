@@ -111,7 +111,11 @@ variable "host_resource_group_arn" {
   type        = string
   default     = null
 }
-
+variable "license_specifications" {
+  description = "A list of license specifications to associate with"
+  type        = map(string)
+  default     = {}
+}
 variable "iam_instance_profile" {
   description = "IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile"
   type        = string
