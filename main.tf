@@ -177,6 +177,7 @@ resource "aws_instance" "this" {
   placement_group                      = var.placement_group
   tenancy                              = var.tenancy
   host_id                              = var.host_id
+  host_resource_group_arn              = var.host_resource_group_arn
 
   credit_specification {
     cpu_credits = local.is_t_instance_type ? var.cpu_credits : null
